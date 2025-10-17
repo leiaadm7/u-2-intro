@@ -11,7 +11,6 @@ func start(pos):
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	#hide()
 
 func _process(delta):
 	var velocity = Vector2.ZERO 
@@ -42,7 +41,7 @@ func _process(delta):
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	hide()
 	hit.emit()
 	# 
